@@ -14,7 +14,7 @@ public class MountainArray{
          * @param int[] arr - array passed in for validation.
          * @return boolean - return T/F depending if the array passed in takes a mountain format.
          */
-        public boolean validMountainArray(int[] arr){
+        public boolean validateMountainArray(int[] arr){
                 
                 boolean up = false;         //Initialize up var to track if I am going up the mountain.
                 boolean down = false;       //Initialize down var to track if I am going down the mountain.
@@ -39,7 +39,36 @@ public class MountainArray{
                                         return false;   //Otherwise, I need to just return false.
                                 }
                         }
+
+                        //If I am not at the end, I have a few things to check/keep track of.
+                        if(i == 0 && arr[i] < arr[i+1]){
+                                
+                                up = true;          //Here I need to signal the mountain is going upward.
+                                start = false;      //Set start to false to signal I am no longer at the start.
+                                continue;           //Go on to the next iteration.
+                        }
+                        else if(arr[i] < arr[i+1] && up){
+                                
+                                continue;   //If I end up in here, I am continuing to climb and skip to next iteration.
+                        }
+                        else if(arr[i] > arr[i+1] && down == false && start == false){
+                                
+                                up = false;         //Signal that I am no longer going up.
+                                down = true;        //Signal that I am now going down.
+                                continue;           //Go on to the next iteration.
+                        }
+                        else if(arr[i] > arr[i+1] && down){
+                                
+                                continue;           //Just skip on to the next iteration.
+                        }
+                        else{
+                                return false;       //If I end up in here, then I need to return false bec I don't have a mountain array.
+                        }
                 }
+
+                //If I get this far, something went wrong and I need to just print an error and return false.
+                System.out.println("Error");
+                return false;
 
         }
 
@@ -47,6 +76,10 @@ public class MountainArray{
         //Need to create a main method for testing. 
         public static void main(String[] args){
                 
-                System.out.println("Hello World");
+                int[] tmpArr = {0, 1, 2, 3, 2, 1, 0};           //Create some temp data. 
+                
+                MountainArray tmpObj = new MountainArray();     //Create a new instance on the class for testing.
+
+                System.out.println(tmpObj.validateMountainArray(tmpArr));
         }
 }
