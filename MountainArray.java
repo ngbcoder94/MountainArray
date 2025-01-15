@@ -4,7 +4,7 @@
  * Author: Nick Burkett
  * Date: 01/14/2025
  *
- * Status: WIP
+ * Status: SOLVED
  */
 public class MountainArray{
         
