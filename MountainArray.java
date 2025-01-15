@@ -7,6 +7,17 @@
  * Status: WIP
  */
 public class MountainArray{
+        
+        /*
+         * This is my function validMountainArray that will check to see if I have a valid mountain array.
+         *
+         * @param int[] arr - array passed in for validation.
+         * @return boolean - return T/F depending if the array passed in takes a mountain format.
+         */
+        public boolean validMountainArray(int[] arr){
+
+        }
+
 
         //Need to create a main method for testing. 
         public static void main(String[] args){
